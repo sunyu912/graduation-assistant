@@ -29,6 +29,10 @@ angular.module('graduationAssistantApp')
     $scope.supportCourses = coreSupport;
 	$scope.coreSupportTotal = 0;
 
+    $scope.semCoreCourses = semCoreCourses;
+
+
+
     $scope.updateTotal = function() {
 		$scope.totalCredit1 = $scope.coreTotal 
 								+ Math.min($scope.coreEleTotal, 23)
@@ -37,13 +41,58 @@ angular.module('graduationAssistantApp')
     }
 
     $scope.updateCoreCredits = function() {
+        var checkedCoreCourses = [];
     	$scope.coreTotal = 0;
     	for(var i = 0; i < $scope.courses.length; i++) {
     		if ($scope.courses[i].check) {
     			$scope.coreTotal += $scope.courses[i].credit;
+                checkedCoreCourses.push($scope.courses[i].id);
     		}
     	}	
-    	$scope.updateTotal();	
+    	$scope.updateTotal();
+        $scope.updateSemCoreStatus(checkedCoreCourses);
+    }
+
+    $scope.updateSemCoreStatus = function(checkedCoreCourses) {
+        // update equivalent status
+        var checkedSemCoreCourses = [];
+        for(var i = 0; i < $scope.semCoreCourses.length; i++) {
+            var missing = haveFullList($scope.semCoreCourses[i].equivalent, checkedCoreCourses);
+            if (missing.length == 0) {
+                $scope.semCoreCourses[i].check = true;                
+                $scope.semCoreCourses[i].status = 'Done';
+                checkedSemCoreCourses.push($scope.semCoreCourses[i].id);
+            } else {
+                $scope.semCoreCourses[i].check = false;
+            }
+        }
+        // update pre-requisite status
+        for(var i = 0; i < $scope.semCoreCourses.length; i++) {
+            var missing = haveFullList($scope.semCoreCourses[i].prereq, checkedSemCoreCourses);
+            if (missing.length == 0) {
+                $scope.semCoreCourses[i].ready = true;   
+                if (!$scope.semCoreCourses[i].check) {
+                    $scope.semCoreCourses[i].status = 'Ready to Take';         
+                }
+            } else {
+                $scope.semCoreCourses[i].ready = false;
+                if (!$scope.semCoreCourses[i].check) {
+                    $scope.semCoreCourses[i].status = 'Missing: ' + missing;
+                }
+            } 
+        }
+    }
+
+    function haveFullList(reqCourses, checkedCourses) {
+        var missing = [];
+        if (reqCourses && reqCourses.length > 0) {
+            for(var i = 0; i < reqCourses.length; i++) {                
+                if (!contains.call(checkedCourses, reqCourses[i])) {
+                    missing.push(reqCourses[i]);                    
+                }
+            }
+        }
+        return missing;
     }
 
     $scope.updateElectiveCredits = function() {
@@ -65,5 +114,7 @@ angular.module('graduationAssistantApp')
     	}	
     	$scope.updateTotal();	
     }
+
+    $scope.updateSemCoreStatus([]);
 
   });

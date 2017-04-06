@@ -362,3 +362,143 @@ var coreSupport = [
 	'credit' : 4
 }
 ]
+
+var semCoreCourses = [
+{
+	'id' : 'CS1300',
+	'name' : 'Discrete Structures',
+	'credit' : 4,
+	'equivalent' : [ 'CS130' ],
+	'prereq' : []
+},
+{
+	'id' : 'CS1400',
+	'name' : 'Introduction to Programming and Problem Solving',
+	'credit' : 4,
+	'equivalent' : [ 'CS140', 'CS141' ],
+	'prereq' : []
+},
+{
+	'id' : 'CS2400',
+	'name' : 'Data Structures and Advanced Programming',
+	'credit' : 4,
+	'equivalent' : [ 'CS240', 'CS241' ],
+	'prereq' : [ 'CS1300', 'CS1400', 'MAT1140' ]
+},
+{
+	'id' : 'CS2640',
+	'name' : 'Computer Organization and Assembly Programming',
+	'credit' : 3,
+	'equivalent' : [ 'CS264' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS3110',
+	'name' : 'Formal Languages and Automata',
+	'credit' : 3,
+	'equivalent' : [ 'CS311' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS3310',
+	'name' : 'Design and Analysis of Algorithms',
+	'credit' : 4,
+	'equivalent' : [ 'CS331' ],
+	'prereq' : [ 'CS2400', 'MAT2250' ]
+},
+{
+	'id' : 'CS3650',
+	'name' : 'Computer Architecture',
+	'credit' : 4,
+	'equivalent' : [ 'CS210', 'CS365' ],
+	'prereq' : [ 'CS2640' ]
+},
+{
+	'id' : 'CS3750',
+	'name' : 'Computers and Society',
+	'credit' : 3,
+	'equivalent' : [ 'CS375' ],
+	'prereq' : [ ]
+},
+{
+	'id' : 'CS4080',
+	'name' : 'Programming Languages',
+	'credit' : 3,
+	'equivalent' : [ 'CS408' ],
+	'prereq' : [ 'CS2640', 'CS3110']
+},
+{
+	'id' : 'CS4310',
+	'name' : 'Operating Systems',
+	'credit' : 3,
+	'equivalent' : [ 'CS431' ],
+	'prereq' : [ 'CS3650' ]
+},
+{
+	'id' : 'CS4630',
+	'name' : 'Undergraduate Seminar',
+	'credit' : 1,
+	'equivalent' : [ 'CS463' ],
+	'prereq' : [ 'SeniorStatus', 'GWT' ]
+},
+{
+	'id' : 'CS4800',
+	'name' : 'Software Engineering',
+	'credit' : 3,
+	'equivalent' : [ 'CS480' ],
+	'prereq' : [ 'CS3650', 'CS3310' ]
+}
+]
+
+var semCoreSupportCourses = [
+{
+	'id' : 'BIO1110',
+	'name' : 'Life Science',
+	'credit' : 2
+},
+{
+	'id' : 'BIO1110L',
+	'name' : 'Life Science Lab',
+	'credit' : 1
+},
+{
+	'id' : 'MAT1140',
+	'name' : 'Calculus I',
+	'credit' : 4
+},
+{
+	'id' : 'MAT1150',
+	'name' : 'Calculus II',
+	'credit' : 4
+},
+{
+	'id' : 'MAT2250',
+	'name' : 'Linear Algebra with Applications to Differential Equations',
+	'credit' : 4
+},
+{
+	'id' : 'PHY1510',
+	'name' : 'Introduction to Newtonian Mechanics',
+	'credit' : 3
+},
+{
+	'id' : 'PHY1510L',
+	'name' : 'Introduction to Newtonian Mechanics Lab',
+	'credit' : 1
+},
+{
+	'id' : 'PHY1520',
+	'name' : 'Introduction to Electromagnetism and Circuits Lab',
+	'credit' : 3
+},
+{
+	'id' : 'PHY1520L',
+	'name' : 'Introduction to Electromagnetism and Circuits Lab',
+	'credit' : 1
+},
+{
+	'id' : 'STA2260',
+	'name' : 'Probability and Statistics for Computer Scientists and Engineers',
+	'credit' : 3
+}
+]
