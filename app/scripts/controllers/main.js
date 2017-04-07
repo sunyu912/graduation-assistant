@@ -72,13 +72,35 @@ angular.module('graduationAssistantApp')
 
     $scope.updateQuarterCheckStatus = function(type, index) {
         if ($scope.quarterControlMap[type][index].check) {
+            $scope.quarterControlMap[type][index].status = 'Done';
             $scope.checkedQuarterCourses[$scope.quarterControlMap[type][index].id] = true;
         } else {
             $scope.checkedQuarterCourses[$scope.quarterControlMap[type][index].id] = false;
         }             
         
     	$scope.updateTotal();
+        $scope.updateQuarterCoreStatus();
         $scope.updateSemCoreStatus();
+    }
+
+    $scope.updateQuarterCoreStatus = function() {
+        for(var i = 0; i < 3; i++) {
+            for(var j = 0; j < $scope.quarterControlMap[i].length; j++) {
+                var missing = haveFullList($scope.quarterControlMap[i][j].prereq, $scope.checkedQuarterCourses);
+                if (missing.length == 0) {
+                    $scope.quarterControlMap[i][j].ready = true;
+                    $scope.quarterControlMap[i][j].status = 'Ready to Take';
+                    if ($scope.quarterControlMap[i][j].comment) {
+                        $scope.quarterControlMap[i][j].status += ': ' + $scope.quarterControlMap[i][j].comment;
+                    }                    
+                } else {
+                    $scope.quarterControlMap[i][j].ready = false;  
+                    if (!$scope.quarterControlMap[i][j].check) {                                            
+                        $scope.quarterControlMap[i][j].status = 'Missing: ' + missing;
+                    }
+                }
+            }
+        }
     }
 
     $scope.updateSemCoreStatus = function() {
@@ -116,7 +138,7 @@ angular.module('graduationAssistantApp')
             if (missing.length == 0) {
                 $scope.semCoreCourses[i].ready = true;   
                 if (!$scope.semCoreCourses[i].check) {
-                    $scope.semCoreCourses[i].status = 'Ready to Take';    
+                    $scope.semCoreCourses[i].status = 'Ready to Take';
                     if ($scope.semCoreCourses[i].comment) {
                         $scope.semCoreCourses[i].status += ': ' + $scope.semCoreCourses[i].comment;
                     }     
@@ -160,6 +182,7 @@ angular.module('graduationAssistantApp')
         return missing;
     }
 
+    $scope.updateQuarterCoreStatus();
     $scope.updateSemCoreStatus();
 
   });
