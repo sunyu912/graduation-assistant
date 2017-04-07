@@ -165,23 +165,6 @@ var coreElective = [
 	'max' : 4
 },
 {
-	'id' : 'CS461',
-	'name' : 'Senior Project',
-	'credit' : 2
-},
-{
-	'id' : 'CS462',
-	'name' : 'Senior Project',
-	'credit' : 2
-},
-{
-	'id' : 'CS400',
-	'name' : 'Special Study for Upper Division Students',
-	'credit' : 2,
-	'max' : 4,
-	'min' : 1
-},
-{
 	'id' : 'CS200',
 	'name' : 'Special Study for Lower Division Students',
 	'credit' : 2,
@@ -194,6 +177,23 @@ var coreElective = [
 	'credit' : 4,
 	'min' : 1,
 	'max' : 4
+},
+{
+	'id' : 'CS400',
+	'name' : 'Special Study for Upper Division Students',
+	'credit' : 2,
+	'max' : 4,
+	'min' : 1
+},
+{
+	'id' : 'CS461',
+	'name' : 'Senior Project',
+	'credit' : 2
+},
+{
+	'id' : 'CS462',
+	'name' : 'Senior Project',
+	'credit' : 2
 },
 {
 	'id' : 'EGR461',
@@ -518,7 +518,7 @@ var semCoreCourses = [
 	'id' : 'STA2260',
 	'name' : 'Probability and Statistics for Computer Scientists and Engineers',
 	'credit' : 3,
-	'equivalent' : [ 'STA226' ],
+	'equivalent' : [ 'STA326' ],
 	'prereq' : [ 'MAT1150' ]
 }
 ]
@@ -634,6 +634,13 @@ var semCoreElective = [
 	'prereq' : [ 'CS2400' ]
 },
 {
+	'id' : 'CS4650',
+	'name' : 'Big Data Analytics and Cloud Computing',
+	'credit' : 3,
+	'equivalent' : [ 'CS465' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
 	'id' : 'CS4700',
 	'name' : 'Game Development',
 	'credit' : 3,
@@ -712,13 +719,6 @@ var semCoreElective = [
 	'name' : 'Combinatorics',
 	'credit' : 3,
 	'equivalent' : [ 'MAT347' ],
-	'prereq' : [ ]
-},
-{
-	'id' : 'MAT3700',
-	'name' : 'Graph Theory',
-	'credit' : 3,
-	'equivalent' : [ 'MAT370' ],
 	'prereq' : [ ]
 },
 {
