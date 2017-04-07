@@ -685,7 +685,7 @@ var semCoreElective = [
 	'id' : 'CS4410',
 	'name' : 'Internship in Computer Science',
 	'credit' : 1,
-	'equivalent' : [ ],
+	'equivalent' : [ 'CS441' ],
 	'prereq' : [ ],
 	'min' : 1,
 	'max' : 2,
@@ -711,33 +711,35 @@ var semCoreElective = [
 	'id' : 'MAT3470',
 	'name' : 'Combinatorics',
 	'credit' : 3,
-	'equivalent' : [ 'CS347' ],
+	'equivalent' : [ 'MAT347' ],
 	'prereq' : [ ]
 },
 {
-	'id' : 'MAT370',
+	'id' : 'MAT3700',
 	'name' : 'Graph Theory',
-	'credit' : 4
+	'credit' : 3,
+	'equivalent' : [ 'MAT370' ],
+	'prereq' : [ ]
 },
 {
 	'id' : 'MAT3800',
 	'name' : 'Mathematics of Operations Research',
 	'credit' : 3,
-	'equivalent' : [ 'CS380' ],
+	'equivalent' : [ 'MAT380' ],
 	'prereq' : [ ]
 },
 {
 	'id' : 'MAT3810',
 	'name' : 'Mathematics of Operations Research',
 	'credit' : 4,
-	'equivalent' : [ 'CS381' ],
+	'equivalent' : [ 'MAT381' ],
 	'prereq' : [ ]
 },
 {
 	'id' : 'MAT4020',
 	'name' : 'Introduction to Numerical Analysis II',
 	'credit' : 3,
-	'equivalent' : [ 'CS402' ],
+	'equivalent' : [ 'MAT402' ],
 	'prereq' : [ ]
 },
 {
@@ -751,21 +753,21 @@ var semCoreElective = [
 	'id' : 'MAT4800',
 	'name' : 'Mathematical Programming',
 	'credit' : 4,
-	'equivalent' : [ 'CS480' ],
+	'equivalent' : [ 'MAT480' ],
 	'prereq' : [ ]
 },
 {
 	'id' : 'MAT4850',
 	'name' : 'Mathematical Modeling I',
 	'credit' : 4,
-	'equivalent' : [ 'CS485' ],
+	'equivalent' : [ 'MAT485' ],
 	'prereq' : [ ]
 },
 {
 	'id' : 'MAT4860',
 	'name' : 'Mathematical Modeling II',
 	'credit' : 3,
-	'equivalent' : [ 'CS486' ],
+	'equivalent' : [ 'MAT486' ],
 	'prereq' : [ ]
 }
 ]
