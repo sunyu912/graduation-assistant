@@ -158,7 +158,7 @@ var coreElective = [
 	'credit' : 4
 },
 {
-	'id' : 'CS499/299A/299L',
+	'id' : 'CS499',
 	'name' : 'Special Topics for Upper Division Students',
 	'credit' : 4,
 	'min' : 1,
@@ -189,7 +189,7 @@ var coreElective = [
 	'min' : 1
 },
 {
-	'id' : 'CS299/299A/299L',
+	'id' : 'CS299',
 	'name' : 'Special Topics for Lower Division Students',
 	'credit' : 4,
 	'min' : 1,
@@ -329,7 +329,7 @@ var coreSupport = [
 {
 	'id' : 'PHY131',
 	'name' : 'General Physics',
-	'credit' : 1
+	'credit' : 3
 },
 {
 	'id' : 'PHY131L',
@@ -369,14 +369,16 @@ var semCoreCourses = [
 	'name' : 'Discrete Structures',
 	'credit' : 4,
 	'equivalent' : [ 'CS130' ],
-	'prereq' : []
+	'prereq' : [],
+	'comment' : 'With eligibility for MAT1140'
 },
 {
 	'id' : 'CS1400',
 	'name' : 'Introduction to Programming and Problem Solving',
 	'credit' : 4,
 	'equivalent' : [ 'CS140', 'CS141' ],
-	'prereq' : []
+	'prereq' : [],
+	'comment' : 'With eligibility for MAT1140'
 },
 {
 	'id' : 'CS2400',
@@ -439,66 +441,331 @@ var semCoreCourses = [
 	'name' : 'Undergraduate Seminar',
 	'credit' : 1,
 	'equivalent' : [ 'CS463' ],
-	'prereq' : [ 'SeniorStatus', 'GWT' ]
+	'prereq' : [ 'Senior Status', 'GWT' ]
 },
 {
 	'id' : 'CS4800',
 	'name' : 'Software Engineering',
 	'credit' : 3,
 	'equivalent' : [ 'CS480' ],
-	'prereq' : [ 'CS3650', 'CS3310' ]
-}
-]
-
-var semCoreSupportCourses = [
+	'prereq' : [ 'CS3310' ]
+},
 {
 	'id' : 'BIO1110',
 	'name' : 'Life Science',
-	'credit' : 2
+	'credit' : 2,
+	'equivalent' : [ 'BIO110' ],
+	'prereq' : [ ]
 },
 {
 	'id' : 'BIO1110L',
 	'name' : 'Life Science Lab',
-	'credit' : 1
+	'credit' : 1,
+	'equivalent' : [ 'BIO110L' ],
+	'prereq' : [  ]
 },
 {
 	'id' : 'MAT1140',
 	'name' : 'Calculus I',
-	'credit' : 4
+	'credit' : 4,
+	'equivalent' : [ 'MAT114' ],
+	'prereq' : [  ],
+	'comment' : 'With eligibility for MAT1140'
 },
 {
 	'id' : 'MAT1150',
 	'name' : 'Calculus II',
-	'credit' : 4
+	'credit' : 4,
+	'equivalent' : [ 'MAT115' ],
+	'prereq' : [ 'MAT1140' ]
 },
 {
 	'id' : 'MAT2250',
 	'name' : 'Linear Algebra with Applications to Differential Equations',
-	'credit' : 4
+	'credit' : 4,
+	'equivalent' : [ 'MAT225' ],
+	'prereq' : [ 'MAT1150' ]
 },
 {
 	'id' : 'PHY1510',
 	'name' : 'Introduction to Newtonian Mechanics',
-	'credit' : 3
+	'credit' : 3,
+	'equivalent' : [ 'PHY151' ],
+	'prereq' : [ 'MAT1150' ]
 },
 {
 	'id' : 'PHY1510L',
 	'name' : 'Introduction to Newtonian Mechanics Lab',
-	'credit' : 1
+	'credit' : 1,
+	'equivalent' : [ 'PHY151L' ],
+	'prereq' : [ 'MAT1150' ]
 },
 {
 	'id' : 'PHY1520',
-	'name' : 'Introduction to Electromagnetism and Circuits Lab',
-	'credit' : 3
+	'name' : 'Introduction to Electromagnetism and Circuits',
+	'credit' : 3,
+	'equivalent' : [ 'PHY152' ],
+	'prereq' : [ 'MAT1150', 'PHY1510', 'PHY1510L' ]
 },
 {
 	'id' : 'PHY1520L',
 	'name' : 'Introduction to Electromagnetism and Circuits Lab',
-	'credit' : 1
+	'credit' : 1,
+	'equivalent' : [ 'PHY152L' ],
+	'prereq' : [ 'MAT1150', 'PHY1510', 'PHY1510L' ]
 },
 {
 	'id' : 'STA2260',
 	'name' : 'Probability and Statistics for Computer Scientists and Engineers',
-	'credit' : 3
+	'credit' : 3,
+	'equivalent' : [ 'STA226' ],
+	'prereq' : [ 'MAT1150' ]
+}
+]
+
+var semCoreElective = [
+{
+	'id' : 'CS2450',
+	'name' : 'Programming Graphical User Interfaces',
+	'credit' : 3,
+	'equivalent' : [ 'CS245' ],
+	'prereq' : [ 'CS1400' ]
+},
+{
+	'id' : 'CS2560',
+	'name' : 'C++ Programming',
+	'credit' : 3,
+	'equivalent' : [ 'CS256' ],
+	'prereq' : [ 'CS1400' ]
+},
+{
+	'id' : 'CS2600',
+	'name' : 'Unix and Scripting',
+	'credit' : 3,
+	'equivalent' : [ 'CS260' ],
+	'prereq' : [ 'CS1400' ]
+},
+{
+	'id' : 'CS2990',
+	'name' : 'Special Topics for Lower Division Students',
+	'credit' : 3,
+	'equivalent' : [ 'CS299' ],
+	'prereq' : [ ],
+	'min' : 1,
+	'max' : 3,
+	'allowMultiple' : true,
+	'comment' : 'With consent from the instructor'
+},
+{
+	'id' : 'CS3010',
+	'name' : 'Numerical Methods',
+	'credit' : 3,
+	'equivalent' : [ 'CS301' ],
+	'prereq' : [ 'MAT2250', 'CS2400' ]
+},
+{
+	'id' : 'CS3520',
+	'name' : 'Symbolic Programming',
+	'credit' : 3,
+	'equivalent' : [ 'CS352' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS3560',
+	'name' : 'Object-Oriented Design and Programming',
+	'credit' : 3,
+	'equivalent' : [ 'CS356' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS3700',
+	'name' : 'Parallel Processing',
+	'credit' : 3,
+	'equivalent' : [ 'CS370' ],
+	'prereq' : [ 'CS3310' ]
+},
+{
+	'id' : 'CS3800',
+	'name' : 'Computer Networks',
+	'credit' : 3,
+	'equivalent' : [ 'CS380' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS4110',
+	'name' : 'Compilers and Interpreters',
+	'credit' : 3,
+	'equivalent' : [ 'CS411' ],
+	'prereq' : [ 'CS3110' ]
+},
+{
+	'id' : 'CS4200',
+	'name' : 'Artificial Intelligence',
+	'credit' : 3,
+	'equivalent' : [ 'CS420' ],
+	'prereq' : [ 'CS3310' ]
+},
+{
+	'id' : 'CS4350',
+	'name' : 'Database Systems',
+	'credit' : 3,
+	'equivalent' : [ 'CS435' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS4450',
+	'name' : 'Computer Graphics',
+	'credit' : 3,
+	'equivalent' : [ 'CS445' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS4500',
+	'name' : 'Computability',
+	'credit' : 3,
+	'equivalent' : [ 'CS450' ],
+	'prereq' : [ 'CS3110' ]
+},
+{
+	'id' : 'CS4600',
+	'name' : 'Secure Communication',
+	'credit' : 3,
+	'equivalent' : [ 'CS460' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS4700',
+	'name' : 'Game Development',
+	'credit' : 3,
+	'equivalent' : [ 'CS470' ],
+	'prereq' : [ 'CS2400' ]
+},
+{
+	'id' : 'CS4810',
+	'name' : 'Software Engineering Practice',
+	'credit' : 3,
+	'equivalent' : [ 'CS481' ],
+	'prereq' : [ 'CS4800' ]
+},
+{
+	'id' : 'CS4900',
+	'name' : 'Honors',
+	'credit' : 3,
+	'equivalent' : [ 'CS490' ],
+	'prereq' : [ ]
+},
+{
+	'id' : 'CS4990',
+	'name' : 'Special Topics for Upper Division Students',
+	'credit' : 3,
+	'min' : 1,
+	'max' : 3,
+	'equivalent' : [ 'CS499' ],
+	'prereq' : [ ],
+	'allowMultiple' : true,
+	'comment' : 'With consent from the instructor'
+},
+{
+	'id' : 'CS2000',
+	'name' : 'Special Study for Lower Division Students',
+	'credit' : 1,
+	'equivalent' : [ 'CS200' ],
+	'prereq' : [ ],
+	'comment' : 'With consent from the instructor'
+},
+{
+	'id' : 'CS4000',
+	'name' : 'Special Study for Upper Division Students',
+	'credit' : 1,
+	'equivalent' : [ 'CS400' ],
+	'prereq' : [ ],
+	'comment' : 'With consent from the instructor'
+},
+{
+	'id' : 'CS4410',
+	'name' : 'Internship in Computer Science',
+	'credit' : 1,
+	'equivalent' : [ ],
+	'prereq' : [ ],
+	'min' : 1,
+	'max' : 2,
+	'comment' : 'With consent from the instructor'
+},
+{
+	'id' : 'CS4610',
+	'name' : 'Senior Project',
+	'credit' : 1,
+	'equivalent' : [ 'CS461' ],
+	'prereq' : [ ],
+	'comment' : 'With consent from the instructor'
+},
+{
+	'id' : 'CS4620',
+	'name' : 'Senior Project',
+	'credit' : 1,
+	'equivalent' : [ 'CS462' ],
+	'prereq' : [ ],
+	'comment' : 'With consent from the instructor'
+},
+{
+	'id' : 'MAT3470',
+	'name' : 'Combinatorics',
+	'credit' : 3,
+	'equivalent' : [ 'CS347' ],
+	'prereq' : [ ]
+},
+{
+	'id' : 'MAT370',
+	'name' : 'Graph Theory',
+	'credit' : 4
+},
+{
+	'id' : 'MAT3800',
+	'name' : 'Mathematics of Operations Research',
+	'credit' : 3,
+	'equivalent' : [ 'CS380' ],
+	'prereq' : [ ]
+},
+{
+	'id' : 'MAT3810',
+	'name' : 'Mathematics of Operations Research',
+	'credit' : 4,
+	'equivalent' : [ 'CS381' ],
+	'prereq' : [ ]
+},
+{
+	'id' : 'MAT4020',
+	'name' : 'Introduction to Numerical Analysis II',
+	'credit' : 3,
+	'equivalent' : [ 'CS402' ],
+	'prereq' : [ ]
+},
+{
+	'id' : 'MAT4750',
+	'name' : 'Graph Theory',
+	'credit' : 3,
+	'equivalent' : [ 'CS475' ],
+	'prereq' : [ ]	
+},
+{
+	'id' : 'MAT4800',
+	'name' : 'Mathematical Programming',
+	'credit' : 4,
+	'equivalent' : [ 'CS480' ],
+	'prereq' : [ ]
+},
+{
+	'id' : 'MAT4850',
+	'name' : 'Mathematical Modeling I',
+	'credit' : 4,
+	'equivalent' : [ 'CS485' ],
+	'prereq' : [ ]
+},
+{
+	'id' : 'MAT4860',
+	'name' : 'Mathematical Modeling II',
+	'credit' : 3,
+	'equivalent' : [ 'CS486' ],
+	'prereq' : [ ]
 }
 ]

@@ -29,50 +29,97 @@ angular.module('graduationAssistantApp')
     $scope.supportCourses = coreSupport;
 	$scope.coreSupportTotal = 0;
 
-    $scope.semCoreCourses = semCoreCourses;
+    $scope.quarterControlMap = [
+        $scope.courses, $scope.supportCourses, $scope.eleCourses
+    ];
 
+    $scope.semCoreCourses = semCoreCourses;
+    $scope.semCoreElective = semCoreElective;
+
+    $scope.checkedQuarterCourses = {};
+    $scope.checkedSemesterCourses = {};
 
 
     $scope.updateTotal = function() {
+        // calculate
+        // $scope.coreTotal += $scope.courses[i].credit;
+        $scope.coreTotal = 0;
+        for(var i = 0; i < $scope.courses.length; i++) {
+            if ($scope.courses[i].check) {
+                $scope.coreTotal += $scope.courses[i].credit;
+            }
+        }
+
+        $scope.coreEleTotal = 0;
+        for(var i = 0; i < $scope.eleCourses.length; i++) {
+            if ($scope.eleCourses[i].check) {
+                $scope.coreEleTotal += $scope.eleCourses[i].credit;
+            }
+        }
+
+        $scope.coreSupportTotal = 0;
+        for(var i = 0; i < $scope.supportCourses.length; i++) {
+            if ($scope.supportCourses[i].check) {
+                $scope.coreSupportTotal += $scope.supportCourses[i].credit;
+            }
+        }
+
 		$scope.totalCredit1 = $scope.coreTotal 
 								+ Math.min($scope.coreEleTotal, 23)
 								+ Math.min($scope.coreSupportTotal, 43); 
 		$scope.totalCredit2 = Math.round($scope.totalCredit1 / 1.5 * 10) / 10;
     }
 
-    $scope.updateCoreCredits = function() {
-        var checkedCoreCourses = [];
-    	$scope.coreTotal = 0;
-    	for(var i = 0; i < $scope.courses.length; i++) {
-    		if ($scope.courses[i].check) {
-    			$scope.coreTotal += $scope.courses[i].credit;
-                checkedCoreCourses.push($scope.courses[i].id);
-    		}
-    	}	
+    $scope.updateQuarterCheckStatus = function(type, index) {
+        if ($scope.quarterControlMap[type][index].check) {
+            $scope.checkedQuarterCourses[$scope.quarterControlMap[type][index].id] = true;
+        } else {
+            $scope.checkedQuarterCourses[$scope.quarterControlMap[type][index].id] = false;
+        }             
+        
     	$scope.updateTotal();
-        $scope.updateSemCoreStatus(checkedCoreCourses);
+        $scope.updateSemCoreStatus();
     }
 
-    $scope.updateSemCoreStatus = function(checkedCoreCourses) {
-        // update equivalent status
-        var checkedSemCoreCourses = [];
+    $scope.updateSemCoreStatus = function() {
+        // update equivalent status        
+        // for core
         for(var i = 0; i < $scope.semCoreCourses.length; i++) {
-            var missing = haveFullList($scope.semCoreCourses[i].equivalent, checkedCoreCourses);
+            var missing = haveFullList($scope.semCoreCourses[i].equivalent, $scope.checkedQuarterCourses);
             if (missing.length == 0) {
                 $scope.semCoreCourses[i].check = true;                
                 $scope.semCoreCourses[i].status = 'Done';
-                checkedSemCoreCourses.push($scope.semCoreCourses[i].id);
+                $scope.checkedSemesterCourses[$scope.semCoreCourses[i].id] = true;
             } else {
                 $scope.semCoreCourses[i].check = false;
+                $scope.checkedSemesterCourses[$scope.semCoreCourses[i].id] = false;
             }
         }
+        // for elective 
+        for(var i = 0; i < $scope.semCoreElective.length; i++) {
+            var missing = haveFullList($scope.semCoreElective[i].equivalent, $scope.checkedQuarterCourses);
+            if (missing.length == 0) {
+                $scope.semCoreElective[i].check = true;                
+                $scope.semCoreElective[i].status = 'Done';
+                $scope.checkedSemesterCourses[$scope.semCoreElective[i].id] = true;
+            } else {
+                $scope.semCoreElective[i].check = false;
+                $scope.checkedSemesterCourses[$scope.semCoreElective[i].id] = false;
+            }
+        }
+
+
         // update pre-requisite status
+        // for core
         for(var i = 0; i < $scope.semCoreCourses.length; i++) {
-            var missing = haveFullList($scope.semCoreCourses[i].prereq, checkedSemCoreCourses);
+            var missing = haveFullList($scope.semCoreCourses[i].prereq, $scope.checkedSemesterCourses);
             if (missing.length == 0) {
                 $scope.semCoreCourses[i].ready = true;   
                 if (!$scope.semCoreCourses[i].check) {
-                    $scope.semCoreCourses[i].status = 'Ready to Take';         
+                    $scope.semCoreCourses[i].status = 'Ready to Take';    
+                    if ($scope.semCoreCourses[i].comment) {
+                        $scope.semCoreCourses[i].status += ': ' + $scope.semCoreCourses[i].comment;
+                    }     
                 }
             } else {
                 $scope.semCoreCourses[i].ready = false;
@@ -81,40 +128,38 @@ angular.module('graduationAssistantApp')
                 }
             } 
         }
+        // for elective
+        for(var i = 0; i < $scope.semCoreElective.length; i++) {
+            var missing = haveFullList($scope.semCoreElective[i].prereq, $scope.checkedSemesterCourses);
+            if (missing.length == 0) {
+                $scope.semCoreElective[i].ready = true;   
+                if (!$scope.semCoreElective[i].check) {
+                    $scope.semCoreElective[i].status = 'Ready to Take';    
+                    if ($scope.semCoreElective[i].comment) {
+                        $scope.semCoreElective[i].status += ': ' + $scope.semCoreElective[i].comment;
+                    }     
+                }
+            } else {
+                $scope.semCoreElective[i].ready = false;
+                if (!$scope.semCoreElective[i].check) {
+                    $scope.semCoreElective[i].status = 'Missing: ' + missing;
+                }
+            } 
+        }
     }
 
-    function haveFullList(reqCourses, checkedCourses) {
+    function haveFullList(reqCourses, checkedCoursesMap) {        
         var missing = [];
         if (reqCourses && reqCourses.length > 0) {
-            for(var i = 0; i < reqCourses.length; i++) {                
-                if (!contains.call(checkedCourses, reqCourses[i])) {
-                    missing.push(reqCourses[i]);                    
+            for(var i = 0; i < reqCourses.length; i++) {
+                if (!checkedCoursesMap[reqCourses[i]] || checkedCoursesMap[reqCourses[i]] == false) {
+                    missing.push(reqCourses[i]);
                 }
             }
         }
         return missing;
     }
 
-    $scope.updateElectiveCredits = function() {
-    	$scope.coreEleTotal = 0;
-    	for(var i = 0; i < $scope.eleCourses.length; i++) {
-    		if ($scope.eleCourses[i].check) {
-    			$scope.coreEleTotal += $scope.eleCourses[i].credit;
-    		}
-    	}	
-    	$scope.updateTotal();	
-    }
-
-    $scope.updateSupportCredits = function() {
-    	$scope.coreSupportTotal = 0;
-    	for(var i = 0; i < $scope.supportCourses.length; i++) {
-    		if ($scope.supportCourses[i].check) {
-    			$scope.coreSupportTotal += $scope.supportCourses[i].credit;
-    		}
-    	}	
-    	$scope.updateTotal();	
-    }
-
-    $scope.updateSemCoreStatus([]);
+    $scope.updateSemCoreStatus();
 
   });
