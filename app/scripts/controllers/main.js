@@ -89,10 +89,12 @@ angular.module('graduationAssistantApp')
                 var missing = haveFullList($scope.quarterControlMap[i][j].prereq, $scope.checkedQuarterCourses);
                 if (missing.length == 0) {
                     $scope.quarterControlMap[i][j].ready = true;
-                    $scope.quarterControlMap[i][j].status = 'Ready to Take';
-                    if ($scope.quarterControlMap[i][j].comment) {
-                        $scope.quarterControlMap[i][j].status += ': ' + $scope.quarterControlMap[i][j].comment;
-                    }                    
+                    if (!$scope.quarterControlMap[i][j].check) {
+                        $scope.quarterControlMap[i][j].status = 'Ready to Take';
+                        if ($scope.quarterControlMap[i][j].comment) {
+                            $scope.quarterControlMap[i][j].status += ': ' + $scope.quarterControlMap[i][j].comment;
+                        }                    
+                    }
                 } else {
                     $scope.quarterControlMap[i][j].ready = false;  
                     if (!$scope.quarterControlMap[i][j].check) {                                            
