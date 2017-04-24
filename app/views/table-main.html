@@ -1,0 +1,116 @@
+<div id="my-element" class="fixedsticky jumbotron">  
+  <div class="row">    
+    <div class="col-md-2 col-md-offset-1">
+      <button ng-click="resetAll()" class="btn btn-warning">
+      Reset
+      </button>
+    </div>
+    <div class="col-md-3">
+      <h4>Quarter {{totalCredit1}} / {{totalCreditGraduate1}}</h4>
+      <!-- <p>{{totalCredit1}} / {{totalCreditGraduate1}}</p> -->
+    </div>    
+    <div class="col-md-3">
+      <h4>Semester {{totalCredit2}} / {{totalCreditGraduate2}}</h4>
+      <!-- <p>{{totalCredit2}} / {{totalCreditGraduate2}}</p> -->
+    </div>              
+  </div> 
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h4>Required Core Courses (Quarter)</h4>  
+    <table class="table table-bordered">
+      <tr>
+        <th>Taken</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Credit</th>
+        <th>Status</th>      
+      </tr>
+      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in courses">
+        <td><label><input type="checkbox" ng-model="c.check" ng-change="updateQuarterCheckStatus(0, $index)"></input></label></td>
+        <td><label>{{ c.id }}</label></td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
+        <td>{{ c.status }}</td>
+      </tr>
+    </table>
+
+    <h4>Required Core Support Courses (Quarter)</h4>  
+    <table class="table table-bordered">
+      <tr>
+        <th>Taken</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Credit</th>      
+        <th>Status</th>
+      </tr>
+      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in supportCourses">
+        <td><input type="checkbox" ng-model="c.check" ng-change="updateQuarterCheckStatus(1, $index)"></input></td>
+        <td><label>{{ c.id }}</label></td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
+        <td>{{ c.status }}</td>
+      </tr>
+    </table>  
+  </div>
+
+  <div class="col-md-6">
+    <h4>Required Core Courses (Semester)</h4>  
+    <table class="col table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Credit</th>  
+        <th>Status</th>      
+      </tr>
+      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in semCoreCourses">
+        <td><label>{{ c.id }}</label></td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
+        <td>{{ c.status }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h4>Elective Core Courses (Quarter)</h4>  
+    <table class="table table-bordered">
+      <tr>
+        <th>Taken</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Credit</th>      
+        <th>Status</th>
+      </tr>
+      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in eleCourses">
+        <td><input type="checkbox" ng-model="c.check" ng-change="updateQuarterCheckStatus(2, $index)"></input></td>
+        <td><label>{{ c.id }}</label></td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
+        <td>{{ c.status }}</td>
+      </tr>
+    </table>  
+  </div>
+
+  <div class="col-md-6">
+    <h4>Elective Core Courses (Semester)</h4>  
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Credit</th>      
+        <th>Status</th>      
+      </tr>
+      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in semCoreElective">        
+        <td><label>{{ c.id }}</label></td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
+        <td>{{ c.status }}</td>
+      </tr>
+    </table>  
+  </div>
+</div>
+

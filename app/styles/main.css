@@ -43,12 +43,14 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
+  padding-top: 5px;
+  padding-bottom: 10px;
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
 .jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+  font-size: 14px;
+  padding: 4px 8px;
 }
 
 /* Supporting marketing content */
@@ -59,10 +61,11 @@ body {
   margin-top: 28px;
 }
 
+
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1900px) {
   .container {
-    max-width: 1024px;
+    max-width: 1900px;
   }
 
   /* Remove the padding we set earlier */
@@ -90,6 +93,14 @@ body {
    text-align: center;   
 }
 
+.quarter {
+  /*border-right: 1px solid #ccc;  */
+}
+
+.semester{   
+  
+}
+
 .noprocessed {
   background: #ffffff;
 }
@@ -104,4 +115,40 @@ body {
 
 .missingprereq {
   background: #ff6666;
+}
+
+.btn {
+  padding: 2px 2px;
+}
+
+.col-md-2 {
+  padding-right: 0px;
+  padding-left: 0px;  
+}
+
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 10px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;   
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;   
+}
+
+.fixedsticky { 
+  top: 0; 
+  z-index:999;
 }

@@ -1,110 +1,124 @@
-<div class="jumbotron">  
-  <div class="row">
-    <div class="col-md-6">
-      <h4>Quarter</h4>
-      <p>{{totalCredit1}} / {{totalCreditGraduate1}}</p>
+<!-- <div id="my-element" class="fixedsticky jumbotron">  
+  <div class="row">    
+    <div class="col-md-2 col-md-offset-1">
+      <button ng-click="resetAll()" class="btn btn-warning">
+      Reset
+      </button>
+    </div>
+    <div class="col-md-3">
+      <h4>Quarter {{totalCredit1}} / {{totalCreditGraduate1}}</h4>      
     </div>    
-    <div class="col-md-6">
-      <h4>Semester</h4>
-      <p>{{totalCredit2}} / {{totalCreditGraduate2}}</p>
-    </div>    
-  </div>
+    <div class="col-md-3">
+      <h4>Semester {{totalCredit2}} / {{totalCreditGraduate2}}</h4>
+    </div>              
+  </div> 
 </div>
+ -->
+<div class="container">  
+  <div class="col-md-6 quarter">
+    <div id="my-element" class="jumbotron fixedsticky">
+      <div class="row">        
+        <h4 >Quarter (Before Fall 2018)</h4>
+        <h4>Credit {{totalCredit1}} / {{totalCreditGraduate1}}</h4>
+        <button ng-click="resetAll()" class="btn btn-warning">
+            Reset
+        </button>        
+      </div>
+    </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <h4>Required Core Courses (Quarter)</h4>  
-    <table class="table table-bordered">
-      <tr>
-        <th>Taken</th>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Credit</th>
-        <th>Status</th>      
-      </tr>
-      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in courses">
-        <td><label><input type="checkbox" ng-model="c.check" ng-change="updateQuarterCheckStatus(0, $index)"></input></label></td>
-        <td><label>{{ c.id }}</label></td>
-        <td>{{ c.name }}</td>
-        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
-        <td>{{ c.status }}</td>
-      </tr>
-    </table>
+    <div class="row">  
+        <h4>Quarter | Required Core Courses</h4>
+        <div class="col-md-2 form-group" ng-repeat="c in courses">
+                <input ng-mouseover="count = 555" ng-model="c.check" ng-change="updateQuarterCheckStatus(0, $index)" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
+                <div class="[ btn-group ]">
+                    <label for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <span> </span>
+                    </label>
+                    <label data-toggle="popover" title="{{c.id}} {{c.name}}" data-content="{{c.status}}" for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary ">
+                        {{c.id}}
+                    </label>
+                </div>
+        </div>        
+    </div>
 
-    <h4>Required Core Support Courses (Quarter)</h4>  
-    <table class="table table-bordered">
-      <tr>
-        <th>Taken</th>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Credit</th>      
-        <th>Status</th>
-      </tr>
-      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in supportCourses">
-        <td><input type="checkbox" ng-model="c.check" ng-change="updateQuarterCheckStatus(1, $index)"></input></td>
-        <td><label>{{ c.id }}</label></td>
-        <td>{{ c.name }}</td>
-        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
-        <td>{{ c.status }}</td>
-      </tr>
-    </table>  
+    
+    <div class="row">  
+        <h4>Quarter | Required Core Support Courses</h4>          
+        <div class="[ col-md-2 form-group ]" ng-repeat="c in supportCourses">
+                <input ng-model="c.check" ng-change="updateQuarterCheckStatus(1, $index)" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
+                <div class="[ btn-group ]">
+                    <label for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <span> </span>
+                    </label>
+                    <label data-toggle="popover" title="{{c.id}} {{c.name}}" data-content="{{c.status}}" for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary ">
+                        {{c.id}}
+                    </label>
+                </div>
+        </div>        
+    </div>
+
+    
+    <div class="row">  
+        <h4>Quarter | Elective Core Courses</h4>  
+        <div class="[ col-md-2 form-group ]" ng-repeat="c in eleCourses">
+                <input ng-model="c.check" ng-change="updateQuarterCheckStatus(2, $index)" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
+                <div class="[ btn-group ]">
+                    <label for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <span> </span>
+                    </label>
+                    <label data-toggle="popover" title="{{c.id}} {{c.name}}" data-content="{{c.status}}" for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary ">
+                        {{c.id}}
+                    </label>
+                </div>
+        </div>        
+    </div>
   </div>
 
-  <div class="col-md-6">
-    <h4>Required Core Courses (Semester)</h4>  
-    <table class="col table table-bordered">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Credit</th>  
-        <th>Status</th>      
-      </tr>
-      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in semCoreCourses">
-        <td><label>{{ c.id }}</label></td>
-        <td>{{ c.name }}</td>
-        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
-        <td>{{ c.status }}</td>
-      </tr>
-    </table>
-  </div>
-</div>
+  <div class="col-md-6 semester">
+    <div id="my-element" class="jumbotron fixedsticky">
+      <h4>Semester (From Fall 2018)</h4>
+      <h4>Semester {{totalCredit2}} / {{totalCreditGraduate2}}</h4>
+      <button class="btn btn-default disabled">
+            Reset
+      </button> 
+    </div>
+    
+    <div class="row">  
+        <h4>Semester | Required Core Courses</h4>
+        <div class="[ col-md-2 form-group ]" ng-repeat="c in semCoreCourses">
+                <input disabled ng-model="c.check" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
+                <div class="[ btn-group ]">
+                    <label for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <span> </span>
+                    </label>
+                    <label data-toggle="popover" title="{{c.id}} {{c.name}}" data-content="{{c.status}}" for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary ">
+                        {{c.id}}
+                    </label>
+                </div>
+        </div>        
+    </div>  
 
-<div class="row">
-  <div class="col-md-6">
-    <h4>Elective Core Courses (Quarter)</h4>  
-    <table class="table table-bordered">
-      <tr>
-        <th>Taken</th>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Credit</th>      
-        <th>Status</th>
-      </tr>
-      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in eleCourses">
-        <td><input type="checkbox" ng-model="c.check" ng-change="updateQuarterCheckStatus(2, $index)"></input></td>
-        <td><label>{{ c.id }}</label></td>
-        <td>{{ c.name }}</td>
-        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
-        <td>{{ c.status }}</td>
-      </tr>
-    </table>  
-  </div>
+    
+      
+      <div class="row">  
+          <h4>Semester | Elective Core Courses (Semester)</h4>  
+          <div class="[ col-md-2 form-group ]" ng-repeat="c in semCoreElective">
+                  <input disabled ng-model="c.check" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
+                  <div class="[ btn-group ]">
+                      <label for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-ok"></span>
+                          <span> </span>
+                      </label>
+                      <label data-toggle="popover" title="{{c.id}} {{c.name}}" data-content="{{c.status}}" for="{{c.id}}" ng-class="{'btn-info': c.check, 'btn-success': !c.check && c.ready, 'btn-danger': !c.check && !c.ready}" class="btn btn-primary ">
+                          {{c.id}}
+                      </label>
+                  </div>
+          </div>        
+      </div>
+    </div>  
 
-  <div class="col-md-6">
-    <h4>Elective Core Courses (Semester)</h4>  
-    <table class="table table-bordered">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Credit</th>      
-        <th>Status</th>      
-      </tr>
-      <tr ng-class="{completed: c.check, readytotake: !c.check && c.ready, missingprereq: !c.check && !c.ready}"  ng-repeat="c in semCoreElective">        
-        <td><label>{{ c.id }}</label></td>
-        <td>{{ c.name }}</td>
-        <td>{{ c.min && c.max ? c.min + "-" + c.max : c.credit }}</td>
-        <td>{{ c.status }}</td>
-      </tr>
-    </table>  
-  </div>
 </div>

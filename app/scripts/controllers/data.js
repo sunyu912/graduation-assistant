@@ -550,7 +550,7 @@ var semCoreCourses = [
 	'id' : 'MAT1140',
 	'name' : 'Calculus I',
 	'credit' : 4,
-	'equivalent' : [ 'MAT114', 'MAT115', 'MAT116' ],
+	'equivalent' : [ 'MAT114', 'MAT115'],
 	'prereq' : [  ],
 	'comment' : 'With eligibility for MAT1140'
 },
@@ -565,21 +565,21 @@ var semCoreCourses = [
 	'id' : 'MAT2250',
 	'name' : 'Linear Algebra with Applications to Differential Equations',
 	'credit' : 4,
-	'equivalent' : [ 'MAT208', 'MAT214' ],
+	'equivalent' : [ 'MAT208' ],
 	'prereq' : [ 'MAT1150' ]
 },
 {
 	'id' : 'PHY1510',
 	'name' : 'Introduction to Newtonian Mechanics',
 	'credit' : 3,
-	'equivalent' : [ 'PHY131', 'PHY131L', 'PHY132', 'PHY132L', 'PHY133', 'PHY133L' ],
+	'equivalent' : [ 'PHY131', 'PHY131L', 'PHY132', 'PHY132L' ],
 	'prereq' : [ 'MAT1150' ]
 },
 {
 	'id' : 'PHY1510L',
 	'name' : 'Introduction to Newtonian Mechanics Lab',
 	'credit' : 1,
-	'equivalent' : [ 'PHY131', 'PHY131L', 'PHY132', 'PHY132L', 'PHY133', 'PHY133L' ],
+	'equivalent' : [ 'PHY131', 'PHY131L', 'PHY132', 'PHY132L' ],
 	'prereq' : [ 'MAT1150' ]
 },
 {

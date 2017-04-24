@@ -15,6 +15,14 @@ angular.module('graduationAssistantApp')
       'Karma'
     ];
 
+    $( '#my-element' ).fixedsticky();
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover({
+            container: 'body',
+            trigger: 'hover'
+        });        
+    });    
+
     $scope.totalCreditGraduate1 = 180;
     $scope.totalCredit1 = 0;
     $scope.totalCredit2 = 0;
@@ -81,6 +89,8 @@ angular.module('graduationAssistantApp')
     	$scope.updateTotal();
         $scope.updateQuarterCoreStatus();
         $scope.updateSemCoreStatus();
+
+        $('[data-toggle="popover"]').popover('hide');
     }
 
     $scope.updateQuarterCoreStatus = function() {
@@ -184,7 +194,18 @@ angular.module('graduationAssistantApp')
         return missing;
     }
 
-    $scope.updateQuarterCoreStatus();
-    $scope.updateSemCoreStatus();
+    $scope.resetAll = function() {
+        $scope.checkedQuarterCourses = {};
+        $scope.checkedSemesterCourses = {};
+        for(var i = 0; i < $scope.quarterControlMap.length; i++) {
+            for(var j = 0; j < $scope.quarterControlMap[i].length; j++) {
+                $scope.quarterControlMap[i][j].check = false;
+            }
+        }
+        $scope.updateQuarterCoreStatus();
+        $scope.updateSemCoreStatus(); 
+        $scope.updateTotal();       
+    }
 
+    $scope.resetAll();    
   });
