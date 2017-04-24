@@ -135,7 +135,7 @@ var coreElective = [
 	'id' : 'CS380',
 	'name' : 'Computer Networks',
 	'credit' : 4,
-	'prereq' : [ 'CS241' ]
+	'prereq' : [ 'CS241', 'CS264' ]
 },
 {
 	'id' : 'CS411',
@@ -189,7 +189,7 @@ var coreElective = [
 	'id' : 'CS490',
 	'name' : 'Honors',
 	'credit' : 4,
-	'prereq' : [  ],
+	'prereq' : [ 'CS241' ],
 	'comment' : 'With consent from the instructor'
 },
 {
@@ -198,7 +198,7 @@ var coreElective = [
 	'credit' : 4,
 	'min' : 1,
 	'max' : 4,
-	'prereq' : [  ],
+	'prereq' : [ 'CS241' ],
 	'comment' : 'With consent from the instructor'
 },
 {
@@ -207,7 +207,7 @@ var coreElective = [
 	'credit' : 2,
 	'max' : 2,
 	'min' : 1,
-	'prereq' : [  ],
+	'prereq' : [ 'CS241' ],
 	'comment' : 'With consent from the instructor'
 },
 {
@@ -216,7 +216,7 @@ var coreElective = [
 	'credit' : 4,
 	'min' : 1,
 	'max' : 4,
-	'prereq' : [  ],
+	'prereq' : [ 'CS241' ],
 	'comment' : 'With consent from the instructor'
 },
 {
@@ -225,21 +225,21 @@ var coreElective = [
 	'credit' : 2,
 	'max' : 4,
 	'min' : 1,
-	'prereq' : [  ],
+	'prereq' : [ 'CS241' ],
 	'comment' : 'With consent from the instructor'
 },
 {
 	'id' : 'CS461',
 	'name' : 'Senior Project',
 	'credit' : 2,
-	'prereq' : [  ],
+	'prereq' : [ 'CS241' ],
 	'comment' : 'With consent from the instructor'
 },
 {
 	'id' : 'CS462',
 	'name' : 'Senior Project',
 	'credit' : 2,
-	'prereq' : [  ],
+	'prereq' : [ 'CS241' ],
 	'comment' : 'With consent from the instructor'
 },
 {
@@ -671,7 +671,7 @@ var semCoreElective = [
 	'name' : 'Computer Networks',
 	'credit' : 3,
 	'equivalent' : [ 'CS380' ],
-	'prereq' : [ 'CS2400' ]
+	'prereq' : [ 'CS2640' ]
 },
 {
 	'id' : 'CS4110',
@@ -741,7 +741,7 @@ var semCoreElective = [
 	'name' : 'Honors',
 	'credit' : 3,
 	'equivalent' : [ 'CS490' ],
-	'prereq' : [ ]
+	'prereq' : [ 'CS2400' ]
 },
 {
 	'id' : 'CS4990',
@@ -750,7 +750,7 @@ var semCoreElective = [
 	'min' : 1,
 	'max' : 3,
 	'equivalent' : [ 'CS499' ],
-	'prereq' : [ ],
+	'prereq' : [ 'CS2400' ],
 	'allowMultiple' : true,
 	'comment' : 'With consent from the instructor'
 },
@@ -759,7 +759,7 @@ var semCoreElective = [
 	'name' : 'Special Study for Lower Division Students',
 	'credit' : 1,
 	'equivalent' : [ 'CS200' ],
-	'prereq' : [ ],
+	'prereq' : [ 'CS2400' ],
 	'comment' : 'With consent from the instructor'
 },
 {
@@ -767,7 +767,7 @@ var semCoreElective = [
 	'name' : 'Special Study for Upper Division Students',
 	'credit' : 1,
 	'equivalent' : [ 'CS400' ],
-	'prereq' : [ ],
+	'prereq' : [ 'CS2400' ],
 	'comment' : 'With consent from the instructor'
 },
 {
@@ -775,7 +775,7 @@ var semCoreElective = [
 	'name' : 'Internship in Computer Science',
 	'credit' : 1,
 	'equivalent' : [ 'CS441' ],
-	'prereq' : [ ],
+	'prereq' : [ 'CS2400' ],
 	'min' : 1,
 	'max' : 2,
 	'comment' : 'With consent from the instructor'
@@ -785,7 +785,7 @@ var semCoreElective = [
 	'name' : 'Senior Project',
 	'credit' : 1,
 	'equivalent' : [ 'CS461' ],
-	'prereq' : [ ],
+	'prereq' : [ 'CS2400' ],
 	'comment' : 'With consent from the instructor'
 },
 {
@@ -793,7 +793,7 @@ var semCoreElective = [
 	'name' : 'Senior Project',
 	'credit' : 1,
 	'equivalent' : [ 'CS462' ],
-	'prereq' : [ ],
+	'prereq' : [ 'CS2400' ],
 	'comment' : 'With consent from the instructor'
 },
 {

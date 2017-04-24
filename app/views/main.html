@@ -27,7 +27,7 @@
     </div>
 
     <div class="row">  
-        <h4>Quarter | Required Core Courses</h4>
+        <h4>Quarter | Required Core Courses (62 units)</h4>
         <div class="col-md-2 form-group" ng-repeat="c in courses">
                 <input ng-mouseover="count = 555" ng-model="c.check" ng-change="updateQuarterCheckStatus(0, $index)" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
                 <div class="[ btn-group ]">
@@ -44,7 +44,7 @@
 
     
     <div class="row">  
-        <h4>Quarter | Required Core Support Courses</h4>          
+        <h4>Quarter | Required Core Support Courses (43 units)</h4>          
         <div class="[ col-md-2 form-group ]" ng-repeat="c in supportCourses">
                 <input ng-model="c.check" ng-change="updateQuarterCheckStatus(1, $index)" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
                 <div class="[ btn-group ]">
@@ -61,7 +61,7 @@
 
     
     <div class="row">  
-        <h4>Quarter | Elective Core Courses</h4>  
+        <h4>Quarter | Elective Core Courses (23 units)</h4>  
         <div class="[ col-md-2 form-group ]" ng-repeat="c in eleCourses">
                 <input ng-model="c.check" ng-change="updateQuarterCheckStatus(2, $index)" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
                 <div class="[ btn-group ]">
@@ -87,7 +87,7 @@
     </div>
     
     <div class="row">  
-        <h4>Semester | Required Core Courses</h4>
+        <h4>Semester | Required Core Courses (65 semester units)</h4>
         <div class="[ col-md-2 form-group ]" ng-repeat="c in semCoreCourses">
                 <input disabled ng-model="c.check" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
                 <div class="[ btn-group ]">
@@ -101,11 +101,9 @@
                 </div>
         </div>        
     </div>  
-
-    
       
       <div class="row">  
-          <h4>Semester | Elective Core Courses</h4>  
+          <h4>Semester | Elective Core Courses (19 semester units)</h4>  
           <div class="[ col-md-2 form-group ]" ng-repeat="c in semCoreElective">
                   <input disabled ng-model="c.check" type="checkbox" name="fancy-checkbox-primary" id="{{c.id}}" autocomplete="off" />
                   <div class="[ btn-group ]">
