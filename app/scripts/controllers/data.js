@@ -246,76 +246,76 @@ var coreElective = [
 	'id' : 'EGR461',
 	'name' : 'Engineering Interdisciplinary Clinic I',
 	'credit' : 3,
-	'prereq' : [  ],
+	'prereq' : [ 'RRR' ],
 	'comment' : 'With consent from the instructor'
 },
 {
 	'id' : 'EGR462',
 	'name' : 'Engineering Interdisciplinary Clinic II',
 	'credit' : 3,
-	'prereq' : [  ],
+	'prereq' : [ 'RRR' ],
 	'comment' : 'With consent from the instructor'
 },
 {
 	'id' : 'EGR463',
 	'name' : 'Engineering Interdisciplinary Clinic III',
 	'credit' : 3,
-	'prereq' : [  ],
+	'prereq' : [ 'RRR' ],
 	'comment' : 'With consent from the instructor'
 },
 {
 	'id' : 'MAT216',
 	'name' : 'Differential Equations',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT370',
 	'name' : 'Graph Theory',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT380',
 	'name' : 'Mathematics of Operations Research',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT381',
 	'name' : 'Mathematics of Operations Research',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT402',
 	'name' : 'Numerical Methods in Differential Equations',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT470',
 	'name' : 'Combinatorics',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT480',
 	'name' : 'Mathematical Programming',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT485',
 	'name' : 'Mathematical Modeling and Simulation',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT486',
 	'name' : 'Mathematical Modeling and Simulation',
 	'credit' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'SCI470',
@@ -323,7 +323,7 @@ var coreElective = [
 	'credit' : 4,
 	'min' : 1,
 	'max' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'SCI471',
@@ -331,7 +331,7 @@ var coreElective = [
 	'credit' : 4,
 	'min' : 1,
 	'max' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'SCI472',
@@ -339,7 +339,7 @@ var coreElective = [
 	'credit' : 4,
 	'min' : 1,
 	'max' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'SCI473',
@@ -347,7 +347,7 @@ var coreElective = [
 	'credit' : 4,
 	'min' : 1,
 	'max' : 4,
-	'prereq' : [  ]	
+	'prereq' : [ 'RRR' ]	
 }
 ]
 
@@ -632,7 +632,7 @@ var semCoreElective = [
 	'name' : 'Special Topics for Lower Division Students',
 	'credit' : 3,
 	'equivalent' : [ 'CS299' ],
-	'prereq' : [ ],
+	'prereq' : [ 'CS2410' ],
 	'min' : 1,
 	'max' : 3,
 	'allowMultiple' : true,
@@ -801,55 +801,55 @@ var semCoreElective = [
 	'name' : 'Combinatorics',
 	'credit' : 3,
 	'equivalent' : [ 'MAT347' ],
-	'prereq' : [ ]
+	'prereq' : [ 'RRR' ]
 },
 {
 	'id' : 'MAT3800',
 	'name' : 'Mathematics of Operations Research',
 	'credit' : 3,
 	'equivalent' : [ 'MAT380' ],
-	'prereq' : [ ]
+	'prereq' : [ 'RRR' ]
 },
 {
 	'id' : 'MAT3810',
 	'name' : 'Mathematics of Operations Research',
 	'credit' : 4,
 	'equivalent' : [ 'MAT381' ],
-	'prereq' : [ ]
+	'prereq' : [ 'RRR' ]
 },
 {
 	'id' : 'MAT4020',
 	'name' : 'Introduction to Numerical Analysis II',
 	'credit' : 3,
 	'equivalent' : [ 'MAT402' ],
-	'prereq' : [ ]
+	'prereq' : [ 'RRR' ]
 },
 {
 	'id' : 'MAT4750',
 	'name' : 'Graph Theory',
 	'credit' : 3,
 	'equivalent' : [ 'CS475' ],
-	'prereq' : [ ]	
+	'prereq' : [ 'RRR' ]	
 },
 {
 	'id' : 'MAT4800',
 	'name' : 'Mathematical Programming',
 	'credit' : 4,
 	'equivalent' : [ 'MAT480' ],
-	'prereq' : [ ]
+	'prereq' : [ 'RRR' ]
 },
 {
 	'id' : 'MAT4850',
 	'name' : 'Mathematical Modeling I',
 	'credit' : 4,
 	'equivalent' : [ 'MAT485' ],
-	'prereq' : [ ]
+	'prereq' : [ 'RRR' ]
 },
 {
 	'id' : 'MAT4860',
 	'name' : 'Mathematical Modeling II',
 	'credit' : 3,
 	'equivalent' : [ 'MAT486' ],
-	'prereq' : [ ]
+	'prereq' : [ 'RRR' ]
 }
 ]
