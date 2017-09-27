@@ -86,19 +86,19 @@ body {
 }
 
 .table td {
-   text-align: center;   
+   text-align: center;
 }
 
 .table th {
-   text-align: center;   
+   text-align: center;
 }
 
 .quarter {
   /*border-right: 1px solid #ccc;  */
 }
 
-.semester{   
-  
+.semester{
+
 }
 
 .noprocessed {
@@ -106,7 +106,7 @@ body {
 }
 
 .completed {
-  background: #ccc;
+  background: #5bc0de;
 }
 
 .readytotake {
@@ -123,7 +123,7 @@ body {
 
 .col-md-2 {
   padding-right: 0px;
-  padding-left: 0px;  
+  padding-left: 0px;
 }
 
 .form-group input[type="checkbox"] {
@@ -138,17 +138,36 @@ body {
     display: none;
 }
 .form-group input[type="checkbox"] + .btn-group > label span:last-child {
-    display: inline-block;   
+    display: inline-block;
 }
 
 .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
     display: inline-block;
 }
 .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-    display: none;   
+    display: none;
 }
 
-.fixedsticky { 
-  top: 0; 
+.fixedsticky {
+  top: 0;
   z-index:999;
 }
+
+@media (min-width: 768px) {
+  .row.equal {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.vertical-align {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+  display: flex;
+  align-items: center;
+}
+

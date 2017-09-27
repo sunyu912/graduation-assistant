@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'directives.direction'
   ])
   .config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
@@ -39,7 +40,7 @@ angular
       })
       .otherwise({
         redirectTo: '/'
-      });      
+      });
   });
 
 $(document).ready(function(){
@@ -47,4 +48,4 @@ $(document).ready(function(){
          $(".nav").find(".active").removeClass("active");
          $(this).parent().addClass("active");
       });
-    });    
+    });
