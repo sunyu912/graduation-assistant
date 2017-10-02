@@ -153,11 +153,10 @@ body {
   z-index:999;
 }
 
-@media (min-width: 768px) {
-  .row.equal {
+
+.row.equal {
     display: flex;
     flex-wrap: wrap;
-  }
 }
 
 .vertical-align {

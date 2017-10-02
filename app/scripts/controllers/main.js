@@ -20,8 +20,8 @@ angular.module('graduationAssistantApp')
         $('[data-toggle="popover"]').popover({
             container: 'body',
             trigger: 'hover'
-        });        
-    });    
+        });
+    });
 
     $scope.totalCreditGraduate1 = 180;
     $scope.totalCredit1 = 0;
@@ -72,9 +72,9 @@ angular.module('graduationAssistantApp')
             }
         }
 
-		$scope.totalCredit1 = $scope.coreTotal 
+		$scope.totalCredit1 = $scope.coreTotal
 								+ Math.min($scope.coreEleTotal, 23)
-								+ Math.min($scope.coreSupportTotal, 43); 
+								+ Math.min($scope.coreSupportTotal, 43);
 		$scope.totalCredit2 = Math.round($scope.totalCredit1 / 1.5 * 10) / 10;
     }
 
@@ -84,8 +84,8 @@ angular.module('graduationAssistantApp')
             $scope.checkedQuarterCourses[$scope.quarterControlMap[type][index].id] = true;
         } else {
             $scope.checkedQuarterCourses[$scope.quarterControlMap[type][index].id] = false;
-        }             
-        
+        }
+
     	$scope.updateTotal();
         $scope.updateQuarterCoreStatus();
         $scope.updateSemCoreStatus();
@@ -103,11 +103,11 @@ angular.module('graduationAssistantApp')
                         $scope.quarterControlMap[i][j].status = 'Ready to Take';
                         if ($scope.quarterControlMap[i][j].comment) {
                             $scope.quarterControlMap[i][j].status += ': ' + $scope.quarterControlMap[i][j].comment;
-                        }                    
+                        }
                     }
                 } else {
-                    $scope.quarterControlMap[i][j].ready = false;  
-                    if (!$scope.quarterControlMap[i][j].check) {                                            
+                    $scope.quarterControlMap[i][j].ready = false;
+                    if (!$scope.quarterControlMap[i][j].check) {
                         $scope.quarterControlMap[i][j].status = 'Missing: ' + missing;
                     }
                 }
@@ -116,12 +116,12 @@ angular.module('graduationAssistantApp')
     }
 
     $scope.updateSemCoreStatus = function() {
-        // update equivalent status        
+        // update equivalent status
         // for core
         for(var i = 0; i < $scope.semCoreCourses.length; i++) {
             var missing = haveFullList($scope.semCoreCourses[i].equivalent, $scope.checkedQuarterCourses);
             if (missing.length == 0) {
-                $scope.semCoreCourses[i].check = true;                
+                $scope.semCoreCourses[i].check = true;
                 $scope.semCoreCourses[i].status = 'Done';
                 $scope.checkedSemesterCourses[$scope.semCoreCourses[i].id] = true;
             } else {
@@ -129,11 +129,11 @@ angular.module('graduationAssistantApp')
                 $scope.checkedSemesterCourses[$scope.semCoreCourses[i].id] = false;
             }
         }
-        // for elective 
+        // for elective
         for(var i = 0; i < $scope.semCoreElective.length; i++) {
             var missing = haveFullList($scope.semCoreElective[i].equivalent, $scope.checkedQuarterCourses);
             if (missing.length == 0) {
-                $scope.semCoreElective[i].check = true;                
+                $scope.semCoreElective[i].check = true;
                 $scope.semCoreElective[i].status = 'Done';
                 $scope.checkedSemesterCourses[$scope.semCoreElective[i].id] = true;
             } else {
@@ -148,41 +148,41 @@ angular.module('graduationAssistantApp')
         for(var i = 0; i < $scope.semCoreCourses.length; i++) {
             var missing = haveFullList($scope.semCoreCourses[i].prereq, $scope.checkedSemesterCourses);
             if (missing.length == 0) {
-                $scope.semCoreCourses[i].ready = true;   
+                $scope.semCoreCourses[i].ready = true;
                 if (!$scope.semCoreCourses[i].check) {
                     $scope.semCoreCourses[i].status = 'Ready to Take';
                     if ($scope.semCoreCourses[i].comment) {
                         $scope.semCoreCourses[i].status += ': ' + $scope.semCoreCourses[i].comment;
-                    }     
+                    }
                 }
             } else {
                 $scope.semCoreCourses[i].ready = false;
                 if (!$scope.semCoreCourses[i].check) {
                     $scope.semCoreCourses[i].status = 'Missing: ' + missing;
                 }
-            } 
+            }
         }
         // for elective
         for(var i = 0; i < $scope.semCoreElective.length; i++) {
             var missing = haveFullList($scope.semCoreElective[i].prereq, $scope.checkedSemesterCourses);
             if (missing.length == 0) {
-                $scope.semCoreElective[i].ready = true;   
+                $scope.semCoreElective[i].ready = true;
                 if (!$scope.semCoreElective[i].check) {
-                    $scope.semCoreElective[i].status = 'Ready to Take';    
+                    $scope.semCoreElective[i].status = 'Ready to Take';
                     if ($scope.semCoreElective[i].comment) {
                         $scope.semCoreElective[i].status += ': ' + $scope.semCoreElective[i].comment;
-                    }     
+                    }
                 }
             } else {
                 $scope.semCoreElective[i].ready = false;
                 if (!$scope.semCoreElective[i].check) {
                     $scope.semCoreElective[i].status = 'Missing: ' + missing;
                 }
-            } 
+            }
         }
     }
 
-    function haveFullList(reqCourses, checkedCoursesMap) {        
+    function haveFullList(reqCourses, checkedCoursesMap) {
         var missing = [];
         if (reqCourses && reqCourses.length > 0) {
             for(var i = 0; i < reqCourses.length; i++) {
@@ -203,9 +203,9 @@ angular.module('graduationAssistantApp')
             }
         }
         $scope.updateQuarterCoreStatus();
-        $scope.updateSemCoreStatus(); 
-        $scope.updateTotal();       
+        $scope.updateSemCoreStatus();
+        $scope.updateTotal();
     }
 
-    $scope.resetAll();    
+    $scope.resetAll();
   });

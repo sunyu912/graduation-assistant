@@ -1,18 +1,19 @@
-<directions/>
+<directions></directions>
 <div id="my-element" class="fixedsticky jumbotron">
   <div class="row">
-    <div class="col-md-2 col-md-offset-1">
-      <button ng-click="resetAll()" class="btn btn-warning">
-      Reset
-      </button>
-    </div>
-    <div class="col-md-3">
+    <div class="col-md-6 col-xs-6">
       <h4>Quarter {{totalCredit1}} / {{totalCreditGraduate1}}</h4>
       <!-- <p>{{totalCredit1}} / {{totalCreditGraduate1}}</p> -->
+      <button ng-click="resetAll()" class="btn btn-warning">
+        Reset
+      </button>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6 col-xs-6">
       <h4>Semester {{totalCredit2}} / {{totalCreditGraduate2}}</h4>
       <!-- <p>{{totalCredit2}} / {{totalCreditGraduate2}}</p> -->
+      <button class="btn disabled">
+        Reset
+      </button>
     </div>
   </div>
 </div>
