@@ -34,15 +34,19 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" ng-href="javascript:void(0)">Graduation Assistant</a>
+            <a class="navbar-brand" ng-href="#/">Graduation Assistant</a>
           </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+          <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavController">
+
 
             <ul class="nav navbar-nav">
-              <li class="active"><a ng-href="#/">Main View</a></li>
-              <li><a ng-href="#/about">Table View</a></li>
-              <li><a ng-href="#/contact">Contact Us</a></li>
+              <li ng-class="{active: isActive('/')}"><a ng-href="#/">HOME</a></li>
+              <!-- <li><a ng-href="#/about">Table View</a></li> -->
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li ng-class="{active: isActive('/contact')}"><a  ng-href="#/contact">CONTACT US</a></li>
             </ul>
           </div>
         </div>
@@ -73,6 +77,7 @@
       ga('send', 'pageview');
 
     </script>
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->

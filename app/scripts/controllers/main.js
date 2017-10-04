@@ -208,4 +208,9 @@ angular.module('graduationAssistantApp')
     }
 
     $scope.resetAll();
-  });
+  })
+  .controller('NavController',function ($scope,$location) {
+    $scope.isActive = function (path) {
+      return  $location.path() === path;
+    };
+  })
