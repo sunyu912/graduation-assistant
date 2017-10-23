@@ -147,7 +147,7 @@ angular.module('graduationAssistantApp')
         // for core
         for(var i = 0; i < $scope.semCoreCourses.length; i++) {
             var missing = haveFullList($scope.semCoreCourses[i].prereq, $scope.checkedSemesterCourses);
-            if (missing.length == 0) {
+            if (missing.length == 0 || specialCase($scope.semCoreCourses[i],$scope.checkedQuarterCourses)) {
                 $scope.semCoreCourses[i].ready = true;
                 if (!$scope.semCoreCourses[i].check) {
                     $scope.semCoreCourses[i].status = 'Ready to Take';
@@ -192,6 +192,14 @@ angular.module('graduationAssistantApp')
             }
         }
         return missing;
+    }
+
+    //this function is for handling the special case(s) whose data is hard coded
+    function specialCase(course,checkedCoursesMap) {
+      if(course.id==='CS2640' && checkedCoursesMap['CS240']===true) {
+          return true;
+      }
+      return false;
     }
 
     $scope.resetAll = function() {
