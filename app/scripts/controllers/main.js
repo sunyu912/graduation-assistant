@@ -196,7 +196,7 @@ angular.module('graduationAssistantApp')
 
     //this function is for handling the special case(s) whose data is hard coded
     function specialCase(course,checkedCoursesMap) {
-      if(course.id==='CS2640' && checkedCoursesMap['CS240']===true) {
+      if(course.id==='CS2640' && checkedCoursesMap['CS240']===true && checkedCoursesMap['CS210']===true) {
           return true;
       }
       return false;
